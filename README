@@ -8,10 +8,11 @@
   command: perl cocoons.pl Test_datasets/test_dataset2.maf Test_datasets/test_dataset2.out
 
 
-3) report MNVs based on read numbers in MAF file (including indels by default)  and merge them 
+3) report MNVs based on read numbers in MAF file and merge them 
 
   note: --genome and --gtf are required in MERGING mode (--merge)
 	--distance 2 is used since variants with distance > 2 will not affect the same codon; if not specified, variants with distance > 2 will still be ignored for merging
+      # Test_datasets/test_dataset3.fasta is human chr10, which can be downloaded from ftp://ftp.ensembl.org/pub/release-75/fasta/homo_sapiens/dna/Homo_sapiens.GRCh37.75.dna.chromosome.10.fa.gz
 
   command: perl cocoons.pl Test_datasets/test_dataset3.maf Test_datasets/test_dataset3.output --distance 2 --snvonly --vaf_diff 10 --merge --genome Test_datasets/test_dataset3.fasta --gtf Test_datasets/test_dataset3.gtf
 
