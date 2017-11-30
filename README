@@ -1,3 +1,30 @@
+
+COrrecting CO-Occuring multi-Nucleotide variationS (COCOONS) in Mutation Annotation Format (MAF) file
+
+Usage: perl cocoons.pl MAF OUTPUT <OPTIONS>
+
+
+REQUIRED:
+	MAF			MAF file to be inspected
+	OUTPUT			Output file name (used as prefix for merged file in MERGING mode)
+
+OPTIONS:
+	--distance		Maximum distance between two mutations to be considered [default: 5]
+	--mapq			Minimum read mapping quality; used if given bam [default: 10]
+	--snvonly		Only SNVs are considered [default: no]
+	--freq_cooccur		Minimum cooccuring frequency of the adjacent mutations; used if given bam [default: 0.8]
+	--vaf_diff		Maximum variant allele frequency (VAF) difference to define DNP; used if not given bam [default:10]
+	--bam			File containing bam file locations for the samples used in MAF (format:SAMPLE<TAB>BAM_LOCATION in each line)
+	--merge			Merge the adjacent mutations (MERGING mode) or not [default: no]
+	--genome		Human genome sequence (fasta) [required in MERGING mode]
+	--gtf			Ensembl human annotation (gtf) [required in MERGING mode]
+	--help			Print this help message
+
+*** Questions & Bug Reports: Qingsong Gao (qingsong.gao@wustl.edu)
+
+
+EXAMPLES:
+
 1) report MNVs based on read numbers in MAF file (SNVs only)
 
   command: perl cocoons.pl Test_datasets/test_dataset1.maf Test_datasets/test_dataset1.out --snvonly
